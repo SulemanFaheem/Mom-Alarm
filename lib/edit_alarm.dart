@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 class AlarmEditScreen extends StatefulWidget {
   final AlarmSettings? alarmSettings;
 
-  const AlarmEditScreen({Key? key, this.alarmSettings})
-      : super(key: key);
-
+  const AlarmEditScreen({Key? key, this.alarmSettings}) : super(key: key);
   @override
   State<AlarmEditScreen> createState() => _AlarmEditScreenState();
 }
@@ -32,7 +30,7 @@ class _AlarmEditScreenState extends State<AlarmEditScreen> {
       loopAudio = true;
       vibrate = true;
       volume = null;
-      assetAudio = 'assets/marimba.mp3';
+      assetAudio = 'Mom-Alarm/assets/audios/despair-metal-trailer-109943.mp3';
     } else {
       selectedDateTime = widget.alarmSettings!.dateTime;
       loopAudio = widget.alarmSettings!.loopAudio;
@@ -69,12 +67,11 @@ class _AlarmEditScreenState extends State<AlarmEditScreen> {
       setState(() {
         final DateTime now = DateTime.now();
         selectedDateTime = now.copyWith(
-          hour: res.hour,
-          minute: res.minute,
-          second: 0,
-          millisecond: 0,
-          microsecond: 0
-        );
+            hour: res.hour,
+            minute: res.minute,
+            second: 0,
+            millisecond: 0,
+            microsecond: 0);
         if (selectedDateTime.isBefore(now)) {
           selectedDateTime = selectedDateTime.add(const Duration(days: 1));
         }
@@ -129,7 +126,6 @@ class _AlarmEditScreenState extends State<AlarmEditScreen> {
                 onPressed: () => Navigator.pop(context, false),
                 child: Text(
                   "Cancel",
-                  
                 ),
               ),
               TextButton(
@@ -138,23 +134,20 @@ class _AlarmEditScreenState extends State<AlarmEditScreen> {
                     ? const CircularProgressIndicator()
                     : Text(
                         "Save",
-                        
                       ),
               ),
             ],
           ),
           Text(
             getDay(),
-           
           ),
           RawMaterialButton(
             onPressed: pickTime,
             child: Container(
               margin: const EdgeInsets.all(20),
               child: Text(
-                TimeOfDay.fromDateTime(selectedDateTime).format(context),
-                style:TextStyle(fontSize: 50)
-              ),
+                  TimeOfDay.fromDateTime(selectedDateTime).format(context),
+                  style: TextStyle(fontSize: 50)),
             ),
           ),
           Row(

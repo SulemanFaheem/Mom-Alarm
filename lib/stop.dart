@@ -12,7 +12,6 @@ class StopScreen extends StatefulWidget {
     super.key,
     required this.alarmSettings,
   });
-
   @override
   State<StopScreen> createState() => _StopScreenState();
 }
@@ -122,7 +121,7 @@ class _StopScreenState extends State<StopScreen> {
                   ElevatedButton(
                     onPressed: () {
                       Alarm.stop(widget.alarmSettings.id)
-                          .then((_) => Navigator.pushReplacement(
+                          .then((_) => Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => HomeScreen(),
