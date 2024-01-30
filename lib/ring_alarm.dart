@@ -26,29 +26,11 @@ class AlarmRingScreen extends StatelessWidget {
               children: [
                 RawMaterialButton(
                   onPressed: () {
-                    final now = DateTime.now();
-                    Alarm.set(
-                      alarmSettings: alarmSettings.copyWith(
-                        dateTime: DateTime(
-                          now.year,
-                          now.month,
-                          now.day,
-                          now.hour,
-                          now.minute,
-                          0,
-                          0,
-                        ).add(const Duration(minutes: 1)),
-                      ),
-                    ).then((_) => Navigator.pop(context));
-                  },
-                  child: Text(
-                    "Snooze",
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                ),
-                RawMaterialButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>StopScreen(alarmSettings:alarmSettings)));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                StopScreen(alarmSettings: alarmSettings)));
                   },
                   child: Text(
                     "Stop",

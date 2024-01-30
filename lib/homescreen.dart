@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:async';
 
 import 'package:alarm/alarm.dart';
@@ -119,7 +121,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       separatorBuilder: (context, index) =>
                           const Divider(height: 1),
                       itemBuilder: (context, index) {
-                        String result = DateFormat('yyyy-MM-dd').format(alarms[index].dateTime);
+                        String result = DateFormat('yyyy-MM-dd')
+                            .format(alarms[index].dateTime);
                         return AlarmTile(
                           Day: result,
                           key: Key(alarms[index].id.toString()),
@@ -144,7 +147,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
       ),
-      
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
